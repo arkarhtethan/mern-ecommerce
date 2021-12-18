@@ -1,4 +1,4 @@
-const bcrypt = require('bcryptjs');
+import bcrypt from 'bcryptjs';
 
 const products = [
     {
@@ -19,4 +19,4 @@ const products = [
     },
 ]
 
-module.exports = products;
+export default products;

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { Col, Row } from 'react-bootstrap'
 import Product from '../components/Product'
-import { Helmet } from "react-helmet";
 import { useDispatch, useSelector } from "react-redux";
 import { listProducts } from '../actions/productActions';
 import Loader from '../components/Loader';
@@ -21,10 +20,12 @@ const HomeScreen = ({ match }) => {
     useEffect(() => {
         dispatch(listProducts(keyword, pageNumber))
     }, [dispatch, keyword, pageNumber])
-
+    console.log('====================================');
+    console.log(products);
+    console.log('====================================');
     return (
         <>
-            <Meta /> 
+            <Meta />
             {!keyword && <ProductCarousel />}
             <h1>Latest Product</h1>
             {loading ? <Loader></Loader> : error ?

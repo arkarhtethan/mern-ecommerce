@@ -21,13 +21,13 @@ const OrderScreen = ({ match, history }) => {
     const { userInfo } = userLogin;
 
     const orderDeliver = useSelector(state => state.orderDeliver);
-    const { success: successDeliver, loading: loadingDeliver, error: errorDeliver } = orderDeliver;
+    const { success: successDeliver, loading: loadingDeliver } = orderDeliver;
 
     const addDecimals = (num) => {
         return (Math.round(num * 100) / 100).toFixed(2)
     }
     if (!loading && order && order.orderItems) {
-        // order.itemsPrice = addDecimals(order.orderItems.reduce((acc, item) => acc + item.price * item.qty, 0))
+        order.itemsPrice = addDecimals(order.orderItems.reduce((acc, item) => acc + item.price * item.qty, 0))
     }
 
     useEffect(() => {
@@ -42,7 +42,7 @@ const OrderScreen = ({ match, history }) => {
             // do smth for paypal
         }
 
-    }, [dispatch, orderId, successDeliver, order])
+    }, [dispatch, orderId, successDeliver, order, history, userInfo])
 
     const deliverHandler = () => {
         dispatch(deliverOrder(order._id));
@@ -110,7 +110,7 @@ const OrderScreen = ({ match, history }) => {
                             <ListGroup.Item>
                                 <h2>
                                     Order Summary
-                            </h2>
+                                </h2>
                             </ListGroup.Item>
                             <ListGroup.Item>
                                 <Row>

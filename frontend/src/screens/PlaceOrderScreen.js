@@ -36,7 +36,7 @@ const PlaceOrderScreen = ({ history }) => {
         if (success) {
             history.push(`/order/${order._id}`)
         }
-    }, [history, success])
+    }, [history, success, order])
 
     const placeOrderHandler = () => {
         dispatch(createOrder({
@@ -106,7 +106,7 @@ const PlaceOrderScreen = ({ history }) => {
                             <ListGroup.Item>
                                 <h2>
                                     Order Summary
-                            </h2>
+                                </h2>
                             </ListGroup.Item>
                             <ListGroup.Item>
                                 <Row>

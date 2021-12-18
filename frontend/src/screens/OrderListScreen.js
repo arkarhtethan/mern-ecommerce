@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { LinkContainer } from 'react-router-bootstrap';
-import { listUsers, deleteUser } from '../actions/userActions';
 import { Button, Table } from 'react-bootstrap';
 import Loader from '../components/Loader'
 import Message from '../components/Message'

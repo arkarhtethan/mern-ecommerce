@@ -21,7 +21,7 @@ import {
     USER_UPDATE_PROFILE_SUCCESS
 } from '../constants/userConstants'
 import { ORDER_LIST_MY_RESET } from '../constants/orderConstants'
-import axios from "axios";
+import axios from "../axios";
 
 export const login = (email, password) => async (dispatch) => {
     try {
@@ -198,7 +198,7 @@ export const deleteUser = (id) => async (dispatch, getState) => {
                 Authorization: `Bearer ${userInfo.token}`
             },
         }
-        const { data } = await axios.delete(
+        await axios.delete(
             `/api/users/${id}`,
             config
         )

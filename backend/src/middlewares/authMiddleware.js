@@ -1,8 +1,8 @@
-const expressAsyncHandler = require('express-async-handler');
-const jwt = require('jsonwebtoken');
-const User = require("../models/userModel");
+import expressAsyncHandler from 'express-async-handler';
+import jwt from 'jsonwebtoken';
+import User from "../models/userModel.js";
 
-const protect = expressAsyncHandler(async (req, res, next) => {
+export const protect = expressAsyncHandler(async (req, res, next) => {
     let token;
     if (req.headers.authorization
         && req.headers.authorization.startsWith('Bearer')
@@ -24,7 +24,7 @@ const protect = expressAsyncHandler(async (req, res, next) => {
     }
 });
 
-const admin = (req, res, next) => {
+export const admin = (req, res, next) => {
     if (req.user && req.user.isAdmin) {
         next();
     } else {
@@ -33,4 +33,3 @@ const admin = (req, res, next) => {
     }
 
 }
-module.exports = { protect, admin }

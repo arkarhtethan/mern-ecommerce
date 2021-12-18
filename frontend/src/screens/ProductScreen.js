@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import axios from "axios";
-import { Button, Card, Col, Form, Image, ListGroup, ListGroupItem, Row } from 'react-bootstrap'
+import { Button, Card, Col, Form, Image, ListGroup, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import Rating from '../components/Rating';
 import { useDispatch, useSelector } from 'react-redux';
@@ -86,7 +85,7 @@ const ProductScreen = ({ history, match }) => {
                                         <Row>
                                             <Col>
                                                 Price:
-                                    </Col>
+                                            </Col>
                                             <Col>
                                                 <strong>
                                                     ${product.price}
@@ -98,7 +97,7 @@ const ProductScreen = ({ history, match }) => {
                                         <Row>
                                             <Col>
                                                 Status:
-                                    </Col>
+                                            </Col>
                                             <Col>
                                                 <strong>
                                                     {product.countInStock > 0 ? 'In Stock' : 'Out of stock'}
@@ -129,7 +128,7 @@ const ProductScreen = ({ history, match }) => {
                                     <ListGroup.Item>
                                         <Button onClick={addToCartHandler} className="btn-block" disabled={product.countInStock === 0} type="button">
                                             Add To Cart
-                                </Button>
+                                        </Button>
                                     </ListGroup.Item>
                                 </ListGroup>
                             </Card>
