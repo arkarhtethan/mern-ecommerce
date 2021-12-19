@@ -41,8 +41,6 @@ app.use('/api/upload', uploadRoutes);
 
 app.use('/uploads', express.static(path.join(__dirname, '..', '/uploads')))
 
-app.use(express.static(path.join(__dirname, '..', '/build/index.html')));
-
 app.use(express.static(path.join(__dirname, '..', 'build')));
 
 app.get('*', (req, res) => {
